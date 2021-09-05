@@ -557,15 +557,21 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-;;   (setq configuration-layer-elpa-archives
-;;         '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-;;           ("org-cn"   . "http://elpa.emacs-china.org/org/")
-;;           ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
-;; 
-;;   (setq package-archives
-;;         '(("melpa" . "http://elpa.emacs-china.org/melpa/")
-;;           ("org"   . "http://elpa.emacs-china.org/org/")
-;;           ("gnu"   . "http://elpa.emacs-china.org/gnu/")))
+  
+  (setq configuration-layer-elpa-archives
+    '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+      ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+      ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+
+  ;; (setq configuration-layer-elpa-archives
+  ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+  ;;         ("org-cn"   . "http://elpa.emacs-china.org/org/")
+  ;;         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+
+  ;; (setq package-archives
+  ;;       '(("melpa" . "http://elpa.emacs-china.org/melpa/")
+  ;;         ("org"   . "http://elpa.emacs-china.org/org/")
+  ;;         ("gnu"   . "http://elpa.emacs-china.org/gnu/")))
   )
 
 (defun dotspacemacs/user-load ()
@@ -584,10 +590,13 @@ before packages are loaded."
   (setq-default dotspacemacs-line-numbers '(:relative t :size-limit-kb 1000)
                 )
   (setq company-show-numbers t)
-  (setq package-archives
-        '(("melpa" . "http://elpa.emacs-china.org/melpa/")
-          ("org"   . "http://elpa.emacs-china.org/org/")
-          ("gnu"   . "http://elpa.emacs-china.org/gnu/")))
+
+  
+  ;; (setq package-archives
+  ;;       '(("melpa" . "http://elpa.emacs-china.org/melpa/")
+  ;;         ("org"   . "http://elpa.emacs-china.org/org/")
+  ;;         ("gnu"   . "http://elpa.emacs-china.org/gnu/")))
+  
   (setq spacemacs-useless-buffers-regexp nil)
 
   (setq deft-directory "~/Dropbox/deft"
