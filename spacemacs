@@ -36,7 +36,7 @@ This function should only modify configuration layer settings."
      ;; perl6
      javascript
      yaml
-     themes-megapack
+     ;; themes-megapack
      colors
      ;; (c-c++
      ;;  ;; :variables
@@ -99,6 +99,7 @@ This function should only modify configuration layer settings."
                                       0x0
                                       deft
                                       zetteldeft
+                                      gnu-elpa-keyring-update
                                       )
 
    ;; A list of packages that cannot be updated.
@@ -557,21 +558,28 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  
+
+  (setq package-check-signature nil)
+
   (setq configuration-layer-elpa-archives
-    '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-      ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-      ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+        '(("melpa-cn" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
+          ("org-cn"   . "http://mirrors.ustc.edu.cn/elpa/org/")
+          ("gnu-cn"   . "http://mirrors.ustc.edu.cn/elpa/gnu/")))
+
+  ;; (setq configuration-layer-elpa-archives
+  ;;   '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+  ;;     ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+  ;;     ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
   ;; (setq configuration-layer-elpa-archives
   ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
   ;;         ("org-cn"   . "http://elpa.emacs-china.org/org/")
   ;;         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
 
-  ;; (setq package-archives
-  ;;       '(("melpa" . "http://elpa.emacs-china.org/melpa/")
-  ;;         ("org"   . "http://elpa.emacs-china.org/org/")
-  ;;         ("gnu"   . "http://elpa.emacs-china.org/gnu/")))
+  (setq package-archives
+        '(("melpa" . "http://elpa.emacs-china.org/melpa/")
+          ("org"   . "http://elpa.emacs-china.org/org/")
+          ("gnu"   . "http://elpa.emacs-china.org/gnu/")))
   )
 
 (defun dotspacemacs/user-load ()
@@ -590,13 +598,6 @@ before packages are loaded."
   (setq-default dotspacemacs-line-numbers '(:relative t :size-limit-kb 1000)
                 )
   (setq company-show-numbers t)
-
-  
-  ;; (setq package-archives
-  ;;       '(("melpa" . "http://elpa.emacs-china.org/melpa/")
-  ;;         ("org"   . "http://elpa.emacs-china.org/org/")
-  ;;         ("gnu"   . "http://elpa.emacs-china.org/gnu/")))
-  
   (setq spacemacs-useless-buffers-regexp nil)
 
   (setq deft-directory "~/Dropbox/deft"
@@ -668,11 +669,12 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(evil-want-Y-yank-to-eol nil)
  '(flycheck-clang-language-standard "c++11")
- '(flycheck-cppcheck-standards '("--std=c++17"))
+ '(flycheck-cppcheck-standards (quote ("--std=c++17")))
  '(flycheck-gcc-language-standard "-std=c++11")
- '(helm-completion-style 'emacs)
+ '(helm-completion-style (quote emacs))
  '(hl-todo-keyword-faces
-   '(("TODO" . "#dc752f")
+   (quote
+    (("TODO" . "#dc752f")
      ("NEXT" . "#dc752f")
      ("THEM" . "#2d9574")
      ("PROG" . "#4f97d7")
@@ -686,25 +688,27 @@ This function is called at the very end of Spacemacs initialization."
      ("TEMP" . "#b1951d")
      ("FIXME" . "#dc752f")
      ("XXX+" . "#dc752f")
-     ("\\?\\?\\?+" . "#dc752f")))
+     ("\\?\\?\\?+" . "#dc752f"))))
  '(package-selected-packages
-   '(org-plus-contrib easy-jekyll flycheck-golangci-lint deft edit-indirect company-tabnine unicode-escape names web-beautify tide typescript-mode tern prettier-js nodejs-repl livid-mode skewer-mode js2-refactor multiple-cursors js2-mode js-doc import-js grizzl impatient-mode simple-httpd helm-gtags ggtags counsel-gtags counsel swiper ivy add-node-modules-path helm-rtags google-c-style flycheck-ycmd flycheck-rtags disaster cpp-auto-include company-ycmd ycmd request-deferred deferred company-rtags rtags company-c-headers ccls rainbow-mode rainbow-identifiers color-identifiers-mode doom-modeline shrink-path zenburn-theme zen-and-art-theme white-sand-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme modus-vivendi-theme modus-operandi-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme light-soap-theme kaolin-themes jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme farmhouse-theme eziam-theme exotica-theme espresso-theme dracula-theme doom-themes django-theme darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme chocolate-theme autothemer cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme 0x0 yaml-mode godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc dap-mode posframe bui company-go go-mode lsp-ui lsp-treemacs lsp-origami origami helm-lsp lsp-mode dash-functional flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip auto-dictionary yasnippet-snippets xterm-color vterm unfill treemacs-magit terminal-here smeargle shell-pop orgit org-rich-yank org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download org-cliplink org-brain mwim multi-term mmm-mode markdown-toc markdown-mode magit-svn magit-section magit-gitflow magit-popup htmlize helm-org-rifle helm-gitignore helm-git-grep helm-company helm-c-yasnippet gnuplot gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ fringe-helper git-gutter+ gh-md fuzzy evil-org evil-magit magit git-commit with-editor transient eshell-z eshell-prompt-extras esh-help company browse-at-remote auto-yasnippet yasnippet ac-ispell auto-complete ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired toc-org symon symbol-overlay string-inflection spaceline-all-the-icons restart-emacs request rainbow-delimiters popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless move-text macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag google-translate golden-ratio font-lock+ flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav editorconfig dumb-jump dotenv-mode diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line))
- '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e"))
+   (quote
+    (gnu-elpa gnu-elpa-keyring-update org-plus-contrib easy-jekyll flycheck-golangci-lint deft edit-indirect company-tabnine unicode-escape names web-beautify tide typescript-mode tern prettier-js nodejs-repl livid-mode skewer-mode js2-refactor multiple-cursors js2-mode js-doc import-js grizzl impatient-mode simple-httpd helm-gtags ggtags counsel-gtags counsel swiper ivy add-node-modules-path helm-rtags google-c-style flycheck-ycmd flycheck-rtags disaster cpp-auto-include company-ycmd ycmd request-deferred deferred company-rtags rtags company-c-headers ccls rainbow-mode rainbow-identifiers color-identifiers-mode doom-modeline shrink-path zenburn-theme zen-and-art-theme white-sand-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme modus-vivendi-theme modus-operandi-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme light-soap-theme kaolin-themes jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme farmhouse-theme eziam-theme exotica-theme espresso-theme dracula-theme doom-themes django-theme darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme chocolate-theme autothemer cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme 0x0 yaml-mode godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc dap-mode posframe bui company-go go-mode lsp-ui lsp-treemacs lsp-origami origami helm-lsp lsp-mode dash-functional flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip auto-dictionary yasnippet-snippets xterm-color vterm unfill treemacs-magit terminal-here smeargle shell-pop orgit org-rich-yank org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download org-cliplink org-brain mwim multi-term mmm-mode markdown-toc markdown-mode magit-svn magit-section magit-gitflow magit-popup htmlize helm-org-rifle helm-gitignore helm-git-grep helm-company helm-c-yasnippet gnuplot gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ fringe-helper git-gutter+ gh-md fuzzy evil-org evil-magit magit git-commit with-editor transient eshell-z eshell-prompt-extras esh-help company browse-at-remote auto-yasnippet yasnippet ac-ispell auto-complete ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired toc-org symon symbol-overlay string-inflection spaceline-all-the-icons restart-emacs request rainbow-delimiters popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless move-text macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag google-translate golden-ratio font-lock+ flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav editorconfig dumb-jump dotenv-mode diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line)))
+ '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
  '(pos-tip-background-color "#DFE1DC")
  '(pos-tip-foreground-color "#4b5254")
  '(safe-local-variable-values
-   '((git-commit-major-mode . git-commit-elisp-text-mode)
+   (quote
+    ((git-commit-major-mode . git-commit-elisp-text-mode)
      (javascript-backend . tide)
      (javascript-backend . tern)
      (javascript-backend . lsp)
      (go-backend . go-mode)
-     (go-backend . lsp))))
+     (go-backend . lsp)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:background nil)))))
 )
 
 
