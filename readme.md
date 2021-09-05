@@ -10,7 +10,8 @@ cd ~/.ssh
 mv config-7p7 config
 chmod 600 github_7p7
 chmod 600 github_7p7.pub
-mkdir -P ~/fun/ || cd ~/fun
+mkdir -p ~/fun/
+cd ~/fun
 git config --global user.name 7p7
 git config --global user.email "z2z4z678@163.com"
 
