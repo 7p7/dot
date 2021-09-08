@@ -1,0 +1,1 @@
+* Setup 6.824 environment
