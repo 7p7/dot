@@ -36,7 +36,7 @@ This function should only modify configuration layer settings."
      ;; perl6
      javascript
      yaml
-     ;; themes-megapack
+     themes-megapack
      colors
      ;; (c-c++
      ;;  ;; :variables

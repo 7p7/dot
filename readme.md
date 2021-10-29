@@ -17,7 +17,8 @@ mkdir -p ~/fun
 cd ~/fun
 git clone git@7p7-github:7p7/dot.git dot
 
-cp dot/spacemacs ~/.spacemacs
+ln -s ~/fun/dot/spacemacs ~/.spacemacs
+# cp dot/spacemacs ~/.spacemacs
 
 git clone --single-branch --branch develop git@7p7-github:syl20bnr/spacemacs ~/spacemacs
 
@@ -27,4 +28,33 @@ mv spacemacs .emacs.d
 
 cd ~/fun
 git clone git@7p7-github:liuxueyang/setup.git setup
+``**
+
+** Rust
+
+For Bash
+
+```bash
+echo 'export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup' >> ~/.bash_profile
+cd ~/fun/setup/
+bash rust.sh
+```
+
+fish config:
+```fish
+echo 'set -x RUSTUP_DIST_SERVER https://mirrors.tuna.tsinghua.edu.cn/rustup' >> ~/.config/fish/config.fish
+echo "set -x fish_user_paths $fish_user_paths $HOME/.cargo/bin" >> ~/.config/fish/config.fish
+```
+
+Install Language server:
+
+```bash
+rustup toolchain add nightly
+rustup component add rust-src
+rustup default nightly
+cargo +nightly install racer
+
+rustup default stable
+rustup component add rls
+rustup +nightly component add rust-analyzer-preview
 ```
