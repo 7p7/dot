@@ -272,7 +272,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("Fira Code"
                                ;; "FantasqueSansMono Nerd Font Mono"
-                               :size 15.0
+                               :size 13.0
                                :weight normal
                                :width normal)
 
@@ -410,7 +410,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Show the scroll bar while scrolling. The auto hide time can be configured
    ;; by setting this variable to a number. (default t)
-   dotspacemacs-scroll-bar-while-scrolling t
+   dotspacemacs-scroll-bar-while-scrolling nil
 
    ;; Control line numbers activation.
    ;; If set to `t', `relative' or `visual' then line numbers are enabled in all
