@@ -9,7 +9,7 @@ rime_frontend=fcitx5-rime bash rime-install essay
 rime_frontend=fcitx5-rime bash rime-install double-pinyin
 #+END_SRC
 
-Add following environment to ~/.profile:
+Add following environment to ~/.profile or ~/.bash_profile (on Ubuntu):
 
 #+begin_src shell
 export GTK_IM_MODULE=fcitx
