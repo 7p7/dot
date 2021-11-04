@@ -19,3 +19,14 @@ export INPUT_METHOD=fcitx
 export SDL_IM_MODULE=fcitx
 export LC_CTYPE="zh_CN.UTF-8"
 #+end_src
+
+In arch Linux, Add the following to file ~/.pam_environment
+
+#+begin_src shell
+GTK_IM_MODULE DEFAULT=fcitx
+QT_IM_MODULE  DEFAULT=fcitx
+XMODIFIERS    DEFAULT=@im=fcitx
+INPUT_METHOD  DEFAULT=fcitx
+SDL_IM_MODULE DEFAULT=fcitx
+#+end_src
+
