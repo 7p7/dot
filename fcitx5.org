@@ -1,0 +1,10 @@
+Install fcitx5.
+
+#+BEGIN_SRC shell
+sudo apt install -y fcitx5 fcitx5-rime
+git clone git@7p7-github:7p7/plum.git ~/fun/plum
+rime_frontend=fcitx5-rime bash rime-install :preset
+rime_frontend=fcitx5-rime bash rime-install prelude
+rime_frontend=fcitx5-rime bash rime-install essay
+rime_frontend=fcitx5-rime bash rime-install double-pinyin
+#+END_SRC
