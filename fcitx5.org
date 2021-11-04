@@ -8,3 +8,14 @@ rime_frontend=fcitx5-rime bash rime-install prelude
 rime_frontend=fcitx5-rime bash rime-install essay
 rime_frontend=fcitx5-rime bash rime-install double-pinyin
 #+END_SRC
+
+Add following environment to ~/.profile:
+
+#+begin_src shell
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export INPUT_METHOD=fcitx
+export SDL_IM_MODULE=fcitx
+export LC_CTYPE="zh_CN.UTF-8"
+#+end_src
