@@ -33,6 +33,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     common-lisp
      ;; perl6
      javascript
      yaml
@@ -595,6 +596,9 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (setq inferior-lisp-program "/usr/local/bin/sbcl")
+  (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hook-common-lisp-mode)
+
   (setq-default dotspacemacs-line-numbers '(:relative t :size-limit-kb 1000)
                 )
   (setq company-show-numbers t)
