@@ -273,7 +273,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("Fira Code"
                                ;; "FantasqueSansMono Nerd Font Mono"
-                               :size 13.0
+                               :size 15.0
                                :weight normal
                                :width normal)
 
@@ -565,7 +565,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq configuration-layer-elpa-archives
         '(("melpa-cn" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
           ("org-cn"   . "http://mirrors.ustc.edu.cn/elpa/org/")
-          ("gnu-cn"   . "http://mirrors.ustc.edu.cn/elpa/gnu/")))
+          ("gnu-cn"   . "http://mirrors.ustc.edu.cn/elpa/gnu/")
+          ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
   ;; (setq configuration-layer-elpa-archives
   ;;   '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
